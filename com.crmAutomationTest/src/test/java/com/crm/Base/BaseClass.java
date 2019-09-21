@@ -1,6 +1,7 @@
 package com.crm.Base;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -27,9 +28,10 @@ public class BaseClass
 	public void setUpSuite()
 	{
 		configdataprovider = new ConfigDataProvider();
-		ExtentHtmlReporter extent = new ExtentHtmlReporter( new File(System.getProperty("user.dir")+ " /Reports/FreeCRM_"+ Helper.getCurrentDateTime()+".html"));
+		ExtentHtmlReporter extent = new ExtentHtmlReporter( new File(System.getProperty("user.dir")+ " C:\\Users\\S.Keshri\\git\\repository\\com.crmAutomationTest\\Reports\\FreeCRM_"+ Helper.getCurrentDateTime()+".html"));
 		report = new ExtentReports();
 		report.attachReporter(extent);
+		///Reports/FreeCRM
 		
 		
 		
@@ -42,12 +44,12 @@ public class BaseClass
 	}
 	
 	@AfterMethod
-	public void tearDown(ITestResult result)
+	public void tearDown(ITestResult result) throws IOException
 	{
 		if(result.getStatus()==ITestResult.FAILURE) 
 		{
-			Helper.captureScreenShot(); //to add screenshot at the screen shot folder
-			logger.fail("Test Failed",MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenShot().build()));
+			//Helper.captureScreenShot(); //to add screenshot at the screen shot folder
+			logger.fail("Test Failed",MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenShot()).build());
 		}
 		
 		if(result.getStatus()==ITestResult.SUCCESS) 

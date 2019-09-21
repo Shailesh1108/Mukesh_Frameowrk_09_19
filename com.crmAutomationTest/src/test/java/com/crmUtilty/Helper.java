@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -39,5 +40,31 @@ public class Helper
 		return customFormat.format(currentDate);
 		
 	}
+	
+	//Switching  to Frame
+	public void switchToFrame()
+	  {
+		  driver.switchTo().frame("mainpane1"); // check framename 
+	  }
+	
+	//java Script Executor 
+	
+	public void scrollDown()
+	{
+		JavascriptExecutor scDown= (JavascriptExecutor)driver;
+		scDown.executeScript("window.scrollBy(0,600)");
+    }
+	
+	
+	public void ScrollUp()
+	{
+		JavascriptExecutor scUp= (JavascriptExecutor)driver;
+		scUp.executeScript("window.scrollBy(0,600)");
+	}
+
+	
+
+	
+	
 
 }

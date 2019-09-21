@@ -10,7 +10,7 @@ public class ConfigDataProvider
 	 public Properties pro;
 	public  ConfigDataProvider()
 	{
-		File src= new File("./Configuation/config.properties");
+		File src= new File("C:\\Users\\S.Keshri\\git\\repository\\com.crmAutomationTest\\Configurtaion/config.properties");
 		try {
 			FileInputStream fis = new FileInputStream(src);	
 			pro= new Properties();
